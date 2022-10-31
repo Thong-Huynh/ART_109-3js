@@ -8,9 +8,9 @@ body {
   margin: auto;
   display: block;
   padding: 20px;
-  background: url(
-data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAMklEQVQYV2N8dvrxfwYk8Oz0EwZGZEGQgJSpDEIQJgDSBFYJE4CrPDPt+H+QFhgASQAAS1MjDyLYWWEAAAAASUVORK5CYII=
-    )repeat;
+  background: #ffe7d9;
+  /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAMklEQVQYV2N8dvrxfwYk8Oz0EwZGZEGQgJSpDEIQJgDSBFYJE4CrPDPt+H+QFhgASQAAS1MjDyLYWWEAAAAASUVORK5CYII=
+)repeat; */
 }
 
 /*Canvas style is used for styling the three.js window*/
@@ -20,7 +20,7 @@ canvas {
   height: 100%;
   margin: auto;
   max-width: 800px;
-  border: 3px solid #6E2E99;
+  border: 3px solid #4e2306;
   border-radius: 3px;
 }
 
@@ -32,7 +32,7 @@ canvas {
 
 h1 {
   font-style: bold;
-  color: #2E9939;
+  color: #68282d;
   max-width: 75%;
   text-align: center;
   margin: auto;
@@ -64,5 +64,5 @@ p.mid {
 }
 
 a {
-  color: #735223;
+  color: #2475ee;
 }

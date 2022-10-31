@@ -3,7 +3,9 @@
 // A basic three.js scene which displays and rotates a polygon with a wireframe
 
 // Extract globals from external script
-const { THREE } = window;
+const {
+  THREE
+} = window;
 
 // Create a scene
 const scene = new THREE.Scene();
@@ -14,19 +16,24 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 const renderer = new THREE.WebGLRenderer();
-renderer.setClearColor(0xdfdfdf);
+renderer.setClearColor(0xdbbdd5);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(500, 500);
 document.body.appendChild(renderer.domElement);
 
 // Add a polygon to the scene
-const geometry = new THREE.IcosahedronGeometry(1, 0);
-const material = new THREE.MeshStandardMaterial({ color: 0x2e8e39 });
-const poly = new THREE.Mesh(geometry, material);
-scene.add(poly);
+
+const geometry = new THREE.CylinderGeometry(2, 1, 1.25, 30);
+const material = new THREE.MeshBasicMaterial({
+  color: 0x344473
+});
+const cylinder = new THREE.Mesh(geometry, material);
+scene.add(cylinder);
 
 // add wireframe to shape
-const matLineBasic = new THREE.LineBasicMaterial({ color: 0x2e8e99 });
+const matLineBasic = new THREE.LineBasicMaterial({
+  color: 0xe8c9b3
+});
 const wireframe = new THREE.WireframeGeometry(geometry);
 const line = new THREE.LineSegments(wireframe, matLineBasic);
 line.material.depthTest = false;
@@ -51,8 +58,8 @@ function render() {
   requestAnimationFrame(render);
 
   // Rotate our shape
-  poly.rotation.x += 0.005;
-  poly.rotation.y += 0.005;
+  cylinder.rotation.x += 0.005;
+  cylinder.rotation.y += 0.005;
   line.rotation.x += 0.005;
   line.rotation.y += 0.005;
   renderer.render(scene, camera);
