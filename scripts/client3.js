@@ -6,7 +6,15 @@
 // Import three.js core
 import * as THREE from "../build/three.module.js";
 // Import pointer lock controls
-import { PointerLockControls } from "../src/PointerLockControls.js";
+import {
+  PointerLockControls
+} from "../src/PointerLockControls.js";
+
+// Import add-ons for GLTF models and orbit controls
+import {
+  GLTFLoader
+} from "../src/GLTFLoader.js";
+
 
 // Establish variables
 let camera, scene, renderer, controls;
@@ -60,16 +68,16 @@ function init() {
 
   // Listen for clicks and respond by removing overlays and starting mouse look controls
   // Listen
-  instructions.addEventListener("click", function() {
+  instructions.addEventListener("click", function () {
     controls.lock();
   });
   // Remove overlays and begin controls on click
-  controls.addEventListener("lock", function() {
+  controls.addEventListener("lock", function () {
     instructions.style.display = "none";
     blocker.style.display = "none";
   });
   // Restore overlays and stop controls on esc
-  controls.addEventListener("unlock", function() {
+  controls.addEventListener("unlock", function () {
     blocker.style.display = "block";
     instructions.style.display = "";
   });
@@ -77,7 +85,7 @@ function init() {
   scene.add(controls.getObject());
 
   // Define key controls for WASD controls
-  const onKeyDown = function(event) {
+  const onKeyDown = function (event) {
     switch (event.code) {
       case "ArrowUp":
       case "KeyW":
@@ -106,7 +114,7 @@ function init() {
     }
   };
 
-  const onKeyUp = function(event) {
+  const onKeyUp = function (event) {
     switch (event.code) {
       case "ArrowUp":
       case "KeyW":
@@ -173,7 +181,9 @@ function init() {
     new THREE.Float32BufferAttribute(colorsFloor, 3)
   );
 
-  const floorMaterial = new THREE.MeshBasicMaterial({ vertexColors: true });
+  const floorMaterial = new THREE.MeshBasicMaterial({
+    vertexColors: true
+  });
 
   const floor = new THREE.Mesh(floorGeometry, floorMaterial);
 
@@ -220,7 +230,9 @@ function init() {
   }
 
   // Define Rendered and html document placement
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({
+    antialias: true
+  });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);

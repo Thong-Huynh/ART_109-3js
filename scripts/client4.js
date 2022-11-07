@@ -1,8 +1,12 @@
 //for in class example on 11/3, currently doesn't work
 import * as THREE from '../build/three.module.js';
 
-import { AsciiEffect } from '../src/AsciiEffect.js';
-import { TrackballControls } from '../src/TrackballControls.js';
+import {
+  AsciiEffect
+} from '../src/AsciiEffect.js';
+import {
+  TrackballControls
+} from '../src/TrackballControls.js';
 
 let camera, controls, scene, renderer, effect;
 
@@ -54,7 +58,7 @@ function init() {
   effect.domElement.style.color = 'cyan';
   effect.domElement.style.backgroundColor = 'purple';
 
- //.:-+*=%@#
+  //.:-+*=%@#
 
   // Special case: append effect.domElement, instead of renderer.domElement.
   // AsciiEffect creates a custom domElement (a div container) where the ASCII elements are placed.
