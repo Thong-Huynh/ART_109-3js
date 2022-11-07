@@ -7,8 +7,12 @@
 import * as THREE from "../build/three.module.js";
 
 // Import add-ons for GLTF models and orbit controls
-import { OrbitControls } from "../src/OrbitControls.js";
-import { GLTFLoader } from "../src/GLTFLoader.js";
+import {
+  OrbitControls
+} from "../src/OrbitControls.js";
+import {
+  GLTFLoader
+} from "../src/GLTFLoader.js";
 
 //Identify div in HTML to place scene
 var container = document.getElementById("space");
@@ -16,7 +20,7 @@ var container = document.getElementById("space");
 //Create scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  50,
+  35,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -25,23 +29,27 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setClearColor(0xdfdfdf);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-//renderer.setSize(400, 800);
+// renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+// renderer.setSize(400, 400);
 // Add scene to gltf.html
 container.appendChild(renderer.domElement);
 
 // Material to be added to model
-var newMaterial = new THREE.MeshStandardMaterial({ color: 0x2E5939 });
+var newMaterial = new THREE.MeshStandardMaterial({
+  color: 0x2E5939
+});
 
 // Variable for GLTF data
 var mesh;
 
 // Load GLTF model, add material, and add it to the scene
 const loader = new GLTFLoader().load(
-  "../../assets/testing123fogv3.glb", // comment this line out and un comment the line below to swithc models
+  // "../../assets/testing123fogv3.glb", // comment this line out and un comment the line below to swithc models
+  "../../assets/umbrella.gltf", // comment this line out and un comment the line below to swithc models
   //"./assets/gourd_web.glb", //<-- photogrammetery model
-  function(gltf) {
+  function (gltf) {
     // Scan loaded model for mesh and apply defined material if mesh is present
-    gltf.scene.traverse(function(child) {
+    gltf.scene.traverse(function (child) {
       if (child.isMesh) {
         //child.material = newMaterial;
       }
@@ -49,13 +57,13 @@ const loader = new GLTFLoader().load(
     // set position and scale
     mesh = gltf.scene;
     mesh.position.set(0, 0, 0);
-    mesh.rotation.set(45, 0, 0);
-    mesh.scale.set(.2, .2, .2); // <-- change this to (1, 1, 1) for photogrammetery model
+    mesh.rotation.set(20, 0, 0);
+    mesh.scale.set(.1, .1, .1); // <-- change this to (1, 1, 1) for photogrammetery model
     // Add model to scene
     scene.add(mesh);
   },
   undefined,
-  function(error) {
+  function (error) {
     console.error(error);
   }
 );
@@ -68,7 +76,7 @@ controls.target.set(0, 0, -0.2);
 controls.update();
 
 // Position our camera so we can see the shape
-camera.position.z = 4.5;
+camera.position.z = 10;
 
 // Add a directional light to the scene
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.9);
