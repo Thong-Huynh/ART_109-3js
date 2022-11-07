@@ -7,22 +7,28 @@ body {
   font-family: "Source Code Pro", monospace;
   margin: auto;
   display: block;
-  padding: 20px;
   background: #ffe7d9;
   /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAMklEQVQYV2N8dvrxfwYk8Oz0EwZGZEGQgJSpDEIQJgDSBFYJE4CrPDPt+H+QFhgASQAAS1MjDyLYWWEAAAAASUVORK5CYII=
 )repeat; */
 }
 
+.modified {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 /*Canvas style is used for styling the three.js window*/
 canvas {
   display: block;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   margin: auto;
-  max-width: 800px;
+  /* max-width: 800px; */
   border: 3px solid #4e2306;
   border-radius: 3px;
 }
+
 
 #space2 {
   width: 525px;
@@ -65,4 +71,11 @@ p.mid {
 
 a {
   color: #2475ee;
+}
+
+.float {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  background: #e8defa;
 }
