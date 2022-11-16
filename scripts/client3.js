@@ -10,6 +10,10 @@ import {
   PointerLockControls
 } from "../src/PointerLockControls.js";
 
+import {
+  FlyControls
+} from '../src/FlyControls.js';
+
 // Import add-ons for GLTF models and orbit controls
 import {
   GLTFLoader

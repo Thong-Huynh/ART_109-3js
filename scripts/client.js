@@ -7,6 +7,14 @@ const {
   THREE
 } = window;
 
+
+import * as THREE from "../build/three.module.js";
+
+import {
+  FlyControls
+} from '../src/FlyControls.js'
+
+
 // Create a scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
